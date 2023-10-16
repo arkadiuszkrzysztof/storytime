@@ -1,0 +1,1439 @@
+{
+	"label": "Farewell Quiz",
+	"values": [
+		"step", "glasses", "style", "racoon", "quiz1", "points", "pointsData", "location", "desk",
+		"quiz1answer1", "quiz1answer2", "quiz1answer3", "quiz1answer4", "quiz1answer5", "quiz1answer6", "quiz1score", 
+		"quiz2answer1", "quiz2answer2", "quiz2answer3", "quiz2score"
+	],
+	"steps": {
+		"START": {
+			"type": "story",
+			"label": "Welcome to the Farewell Quiz!",
+			"text": "Thank you All for such a great time at Pega. The last six years were for me great fun, but also quite a challenge. I'm delighted I was able to connect with you on so many initiatives and projects. <br />And as we skipped some Networking Quizzes in the past few months, please enjoy this Farewell Quiz. It's merely a substitute for the usual entertainment, but I hope it won't disappoint you. Let me say that this quiz is different from what you already know from our events. This time, you'll be part of an adventure. Your choices and answers will lead the story to one of two endings. Boost your imagination, and have fun. :)",
+			"image": "start.png",
+			"submit": "Let's start the journey!",
+			"entryScore": 0,
+			"onSubmitStep": "MAIN1",
+			"onFailureStep": null
+		},
+		"MAIN1": {
+			"type": "decision",
+			"label": "First Things First",
+			"text": "Hello, Friend! I'm glad you made it. This is Al Pacano I wanted you to meet. Today we're going to help him crush a meeting at the bank. You may not know that, but Al's big dream was to open a lamanade stand, and he finally decided to make it happen. However, Al is not familiar with the personal savings concept and needs a teeny-tiny loan to kick off the business. But at first, help him choose the outlook.",
+			"image": "main1.png",
+			"submit": "Lookin' good!",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": "Which glasses should Al Pacano wear to the meeting?",
+				"options": [
+					{
+						"label": "Pink - confident, no compromises",
+						"persistValue": {
+							"glasses": "pink",
+							"style": "confident"
+						},
+						"image": "main1o1.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "MAIN2"
+					},
+					{
+						"label": "Yellow - energetic, stand out",
+						"persistValue": {
+							"glasses": "yellow",
+							"style": "energetic"
+						},
+						"image": "main1o2.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "MAIN2"
+					},
+					{
+						"label": "Blue - smart, smart look, looking smart",
+						"persistValue": {
+							"glasses": "blue",
+							"style": "smart"
+						},
+						"image": "main1o3.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "MAIN2"
+					},
+					{
+						"label": "Black - classy, always in fashion",
+						"persistValue": {
+							"glasses": "black",
+							"style": "classy"
+						},
+						"image": "main1o4.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "MAIN2"
+					}
+				]
+			}
+		},
+		"MAIN2": {
+			"type": "decision",
+			"label": "On My Way",
+			"text": "Al enjoys having a healthy mix of pasture grass and hay for breakfast, but also taking his time in the morning. Knowing the latter, you wouldn't be surprised that he's almost late for the bank appointment, and he needs to hurry up to be on time. However, he meets on the way an old friend, Rick Rack.<br /><i>- Hola Al, great to see you! Wouldn't you mind helping me with this box? I need to take it home, but not with my back. I ain't no longer two years old. Am I right, fam?</i>",
+			"image": [
+				{
+					"condition": {
+						"glasses": "pink"
+					},
+					"value": "main2c1.png"
+				},
+				{
+					"condition": {
+						"glasses": "yellow"
+					},
+					"value": "main2c2.png"
+				},
+				{
+					"condition": {
+						"glasses": "blue"
+					},
+					"value": "main2c3.png"
+				},
+				{
+					"condition": {
+						"glasses": "black"
+					},
+					"value": "main2c4.png"
+				}
+			],
+			"submit": "Hurry Up!",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": "What should Al do?",
+				"options": [
+					{
+						"label": "Politely get out of the conversation and hurry up to the bank",
+						"image": "main2o1.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "MAIN3",
+						"persistValue": {
+							"racoon": "no"
+						}
+					},
+					{
+						"label": "Risk being late at the bank and help Rick with the box",
+						"image": "main2o2.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "SIDE1",
+						"persistValue": {
+							"racoon": "yes"
+						}
+					}
+				]
+			}
+		},
+		"SIDE1": {
+			"type": "story",
+			"label": "Life is Like a Box of Binders",
+			"text": "<i>- Appreciate your help, Al. These are Merlin's belongings. You know him, right? He met online some cute kangaroo and decided to take a chance and meet her in person. Starts like a \"B movie\", but we'll see how it ends. Sweet, we're here, you can drop the box by the door. Thanks again, see you around!</i>",
+			"image": "side1.png",
+			"submit": "See you, Rick",
+			"entryScore": 0,
+			"onSubmitStep": "MAIN3",
+			"onFailureStep": null
+		},
+		"MAIN3": {
+			"type": "story",
+			"label": "Just in Time",
+			"text": [
+				{
+					"condition": {
+						"racoon": "yes"
+					},
+					"value": "Yeah, he did it! Al made it to the bank just in time. By the way, I hope Merlin will find the true love he is clearly desperate for.<br />Oh, they are calling our number. Let's go."
+				},
+				{
+					"condition": {
+						"racoon": "no"
+					},
+					"value": "Yeah, he did it! Al made it to the bank just in time. I wonder what was inside that box. Meh, nevermind. I'm glad we're not late.<br />Oh, they are calling our number. Let's go."
+				},
+				""
+			],
+			"image": [
+				{
+					"condition": {
+						"glasses": "pink"
+					},
+					"value": "main3c1.png"
+				},
+				{
+					"condition": {
+						"glasses": "yellow"
+					},
+					"value": "main3c2.png"
+				},
+				{
+					"condition": {
+						"glasses": "blue"
+					},
+					"value": "main3c3.png"
+				},
+				{
+					"condition": {
+						"glasses": "black"
+					},
+					"value": "main3c4.png"
+				}
+			],
+			"submit": "Go to the counter",
+			"entryScore": 0,
+			"onSubmitStep": "MAIN4",
+			"onFailureStep": null
+		},
+		"MAIN4": {
+			"type": "decision",
+			"label": "Security Measures",
+			"text": "<i>- Good morning, Mr. Pacano. I was expecting you, but I wasn't aware we have full sun today. However, I must admit, you look quite... @@style in those glasses. As we spoke on the wireless ringing device earlier this week, the application for your loan is almost processed. We need to fulfill one more requirement, which is completing the Quarterly Unbiased Information Zombie assessment. It's a new security measure - humans have CAPTCHA, we have the QUIZ. You may choose the general category of the QUIZ.</i>",
+			"image": "main4.png",
+			"submit": "I'm ready",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": "Which category do you want to battle for Al?",
+				"options": [
+					{
+						"label": "Pop culture",
+						"persistValue": {
+							"quiz1": "pop",
+							"points": "0"
+						},
+						"image": "main4o1.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP1"
+					},
+					{
+						"label": "General knowledge",
+						"persistValue": {
+							"quiz1": "general",
+							"points": "0"
+						},
+						"image": "main4o2.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN1"
+					}
+				]
+			}
+		},
+		"QUIZ1_GEN1": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">Which city hosted the Olympics in the year 2000?</p>",
+			"image": "quiz1gen1.png",
+			"submit": "That's my answer",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Atlanta",
+						"persistValue": {
+							"quiz1answer1": "incorrect"
+						},
+						"image": "quiz1gen1o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN2"
+					},
+					{
+						"label": "Sydney",
+						"persistValue": {
+							"quiz1answer1": "correct"
+						},
+						"image": "quiz1gen1o2.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_GEN2"
+					},
+					{
+						"label": "Athens",
+						"persistValue": {
+							"quiz1answer1": "incorrect"
+						},
+						"image": "quiz1gen1o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN2"
+					},
+					{
+						"label": "Beijing",
+						"persistValue": {
+							"quiz1answer1": "incorrect"
+						},
+						"image": "quiz1gen1o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN2"
+					}
+				]
+			}
+		},
+		"QUIZ1_GEN2": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">How many hearts does an octopus have?</p>",
+			"image": "quiz1gen2.png",
+			"submit": "I'm sure about that",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "One",
+						"persistValue": {
+							"quiz1answer2": "incorrect"
+						},
+						"image": "quiz1gen2o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN3"
+					},
+					{
+						"label": "Two",
+						"persistValue": {
+							"quiz1answer2": "incorrect"
+						},
+						"image": "quiz1gen2o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN3"
+					},
+					{
+						"label": "Three",
+						"persistValue": {
+							"quiz1answer2": "correct"
+						},
+						"image": "quiz1gen2o3.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_GEN3"
+					},
+					{
+						"label": "Four",
+						"persistValue": {
+							"quiz1answer2": "incorrect"
+						},
+						"image": "quiz1gen2o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN3"
+					}
+				]
+			}
+		},
+		"QUIZ1_GEN3": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">Gouda is a popular cheese originating from which country?</p>",
+			"image": "quiz1gen3.png",
+			"submit": "Let's check this",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Belgium",
+						"persistValue": {
+							"quiz1answer3": "incorrect"
+						},
+						"image": "quiz1gen3o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN5"
+					},
+					{
+						"label": "France",
+						"persistValue": {
+							"quiz1answer3": "incorrect"
+						},
+						"image": "quiz1gen3o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN5"
+					},
+					{
+						"label": "Germany",
+						"persistValue": {
+							"quiz1answer3": "incorrect"
+						},
+						"image": "quiz1gen3o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN5"
+					},
+					{
+						"label": "The Netherlands",
+						"persistValue": {
+							"quiz1answer3": "correct"
+						},
+						"image": "quiz1gen3o4.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "MAIN5"
+					}
+				]
+			}
+		},
+		"QUIZ1_POP1": {
+			"type": "decision",
+			"label": "QUIZ: Pop Culture",
+			"text": "<p class=\"quiz-question\">What is Postman Pat's surname?</p>",
+			"image": "quiz1pop1.png",
+			"submit": "That's my answer",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Smith",
+						"persistValue": {
+							"quiz1answer1": "incorrect"
+						},
+						"image": "quiz1pop1o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP2"
+					},
+					{
+						"label": "Walker",
+						"persistValue": {
+							"quiz1answer1": "incorrect"
+						},
+						"image": "quiz1pop1o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP2"
+					},
+					{
+						"label": "Clarke",
+						"persistValue": {
+							"quiz1answer1": "incorrect"
+						},
+						"image": "quiz1pop1o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP2"
+					},
+					{
+						"label": "Clifton",
+						"persistValue": {
+							"quiz1answer1": "correct"
+						},
+						"image": "quiz1pop1o4.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_POP2"
+					}
+				]
+			}
+		},
+		"QUIZ1_POP2": {
+			"type": "decision",
+			"label": "QUIZ: Pop Culture",
+			"text": "<p class=\"quiz-question\">Which color pill does Neo swallow in The Matrix?</p>",
+			"image": "quiz1pop2.png",
+			"submit": "I'm sure about that",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Green",
+						"persistValue": {
+							"quiz1answer2": "incorrect"
+						},
+						"image": "quiz1pop2o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP3"
+					},
+					{
+						"label": "Red",
+						"persistValue": {
+							"quiz1answer2": "correct"
+						},
+						"image": "quiz1pop2o2.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_POP3"
+					},
+					{
+						"label": "Yellow",
+						"persistValue": {
+							"quiz1answer2": "incorrect"
+						},
+						"image": "quiz1pop2o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP3"
+					},
+					{
+						"label": "Blue",
+						"persistValue": {
+							"quiz1answer2": "incorrect"
+						},
+						"image": "quiz1pop2o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP3"
+					}
+				]
+			}
+		},
+		"QUIZ1_POP3": {
+			"type": "decision",
+			"label": "QUIZ: Pop Culture",
+			"text": "<p class=\"quiz-question\">In what year did The Beatles split up?</p>",
+			"image": "quiz1pop3.png",
+			"submit": "Let's check this",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "1970",
+						"persistValue": {
+							"quiz1answer3": "correct"
+						},
+						"image": "quiz1pop3o1.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "MAIN5"
+					},
+					{
+						"label": "1972",
+						"persistValue": {
+							"quiz1answer3": "incorrect"
+						},
+						"image": "quiz1pop3o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN5"
+					},
+					{
+						"label": "1975",
+						"persistValue": {
+							"quiz1answer3": "incorrect"
+						},
+						"image": "quiz1pop3o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN5"
+					},
+					{
+						"label": "1977",
+						"persistValue": {
+							"quiz1answer3": "incorrect"
+						},
+						"image": "quiz1pop3o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN5"
+					}
+				]
+			}
+		},
+		"MAIN5": {
+			"type": "story",
+			"label": "Half Way Through",
+			"text": [
+				{
+					"condition": {
+						"points": "==3"
+					},
+					"value": "<i>- Great attempt, sir! You answered all three questions correctly. We are almost sure you are not an Information Zombie. Prove that with the next three questions. Good luck!</i>"
+				},
+				{
+					"condition": {
+						"points": ">=1"
+					},
+					"value": "<i>- Not perfect, but there's still a chance to pass this assessment. You don't look like an Information Zombie to me, but we need to follow the procedures anyway. For your reference, your answer to the first question was @@quiz1answer1, for the second @@quiz1answer2, and for the third @@quiz1answer3. Good luck with the second part of the QUIZ!</i>"
+				},
+				{
+					"condition": {
+						"points": "==0"
+					},
+					"value": "<i>- Oh, sorry to break it to you, but you missed answers for all three questions. I'm afraid you won't be able to make up for it in the second part of the QUIZ. Let's start the assessment once again.</i>"
+				}
+			],
+			"image": "main4.png",
+			"submit": [
+				{
+					"condition": {
+						"points": ">=1"
+					},
+					"value": "Continue the QUIZ"
+				},
+				{
+					"condition": {
+						"points": "==0"
+					},
+					"value": "Retake the QUIZ"
+				}
+			],
+			"entryScore": 0,
+			"onSubmitStep": [
+				{
+					"condition": {
+						"points": "==0"
+					},
+					"value": "MAIN4"
+				},
+				{
+					"condition": {
+						"quiz1": "general"
+					},
+					"value": "QUIZ1_GEN4"
+				},
+				{
+					"condition": {
+						"quiz1": "pop"
+					},
+					"value": "QUIZ1_POP4"
+				}
+			],
+			"onFailureStep": null
+		},
+		"QUIZ1_GEN4": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">How many confirmed elements are in the periodic table?</p>",
+			"image": "quiz1gen4.png",
+			"submit": "This is my final answer",
+			"entryScore": 1,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "98",
+						"persistValue": {
+							"quiz1answer4": "incorrect"
+						},
+						"image": "quiz1gen4o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN5"
+					},
+					{
+						"label": "108",
+						"persistValue": {
+							"quiz1answer4": "incorrect"
+						},
+						"image": "quiz1gen4o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN5"
+					},
+					{
+						"label": "118",
+						"persistValue": {
+							"quiz1answer4": "correct"
+						},
+						"image": "quiz1gen4o3.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_GEN5"
+					},
+					{
+						"label": "128",
+						"persistValue": {
+							"quiz1answer4": "incorrect"
+						},
+						"image": "quiz1gen4o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN5"
+					}
+				]
+			}
+		},
+		"QUIZ1_GEN5": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">Which Stephen King novel takes place mostly in the fictional Overlook Hotel?</p>",
+			"image": "quiz1gen5.png",
+			"submit": "Been there, read that",
+			"entryScore": 1,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "The Shining",
+						"persistValue": {
+							"quiz1answer5": "correct"
+						},
+						"image": "quiz1gen5o1.jpg",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_GEN6"
+					},
+					{
+						"label": "The Institute",
+						"persistValue": {
+							"quiz1answer5": "incorrect"
+						},
+						"image": "quiz1gen5o2.jpg",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN6"
+					},
+					{
+						"label": "The Dark Tower",
+						"persistValue": {
+							"quiz1answer5": "incorrect"
+						},
+						"image": "quiz1gen5o3.jpg",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN6"
+					},
+					{
+						"label": "The Green Mile",
+						"persistValue": {
+							"quiz1answer5": "incorrect"
+						},
+						"image": "quiz1gen5o4.jpg",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_GEN6"
+					}
+				]
+			}
+		},
+		"QUIZ1_GEN6": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">Where is the original Starry Night by Vincent Van Gogh housed?</p>",
+			"image": "quiz1gen6.png",
+			"submit": "Look at that!",
+			"entryScore": 1,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "The National Gallery, London",
+						"persistValue": {
+							"quiz1answer6": "incorrect"
+						},
+						"image": "quiz1gen6o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN6"
+					},
+					{
+						"label": "Van Gogh Museum, Amsterdam",
+						"persistValue": {
+							"quiz1answer6": "incorrect"
+						},
+						"image": "quiz1gen6o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN6"
+					},
+					{
+						"label": "Musée du Louvre, Paris",
+						"persistValue": {
+							"quiz1answer6": "incorrect"
+						},
+						"image": "quiz1gen6o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN6"
+					},
+					{
+						"label": "Museum of Modern Art, New York",
+						"persistValue": {
+							"quiz1answer6": "correct"
+						},
+						"image": "quiz1gen6o4.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "MAIN6"
+					}
+				]
+			}
+		},
+		"QUIZ1_POP4": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">Whose real name is Maurice Joseph Micklewhite Jr.?</p>",
+			"image": "quiz1pop4.png",
+			"submit": "This is my final answer",
+			"entryScore": 1,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Elton John",
+						"persistValue": {
+							"quiz1answer4": "incorrect"
+						},
+						"image": "quiz1pop4o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP5"
+					},
+					{
+						"label": "Bono",
+						"persistValue": {
+							"quiz1answer4": "incorrect"
+						},
+						"image": "quiz1pop4o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP5"
+					},
+					{
+						"label": "Michael Caine",
+						"persistValue": {
+							"quiz1answer4": "correct"
+						},
+						"image": "quiz1pop4o3.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_POP5"
+					},
+					{
+						"label": "Marilyn Monroe",
+						"persistValue": {
+							"quiz1answer4": "incorrect"
+						},
+						"image": "quiz1pop4o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP5"
+					}
+				]
+			}
+		},
+		"QUIZ1_POP5": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">Which magical Italian city George Clooney and his wife Amal decided to get married in?</p>",
+			"image": "quiz1pop5.png",
+			"submit": "Good for them!",
+			"entryScore": 1,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Rome",
+						"persistValue": {
+							"quiz1answer5": "incorrect"
+						},
+						"image": "quiz1pop5o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP6"
+					},
+					{
+						"label": "Venice",
+						"persistValue": {
+							"quiz1answer5": "correct"
+						},
+						"image": "quiz1pop5o2.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "QUIZ1_POP6"
+					},
+					{
+						"label": "Florence",
+						"persistValue": {
+							"quiz1answer5": "incorrect"
+						},
+						"image": "quiz1pop5o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP6"
+					},
+					{
+						"label": "Milan",
+						"persistValue": {
+							"quiz1answer5": "incorrect"
+						},
+						"image": "quiz1pop5o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ1_POP6"
+					}
+				]
+			}
+		},
+		"QUIZ1_POP6": {
+			"type": "decision",
+			"label": "QUIZ: General Knowledge",
+			"text": "<p class=\"quiz-question\">What kind of vegetable was The Office star, Kevin Malone, forced to eat as part of his New Year's resolution?</p>",
+			"image": "quiz1pop6.png",
+			"submit": "Mmm, delicious...",
+			"entryScore": 1,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "Eggplant",
+						"persistValue": {
+							"quiz1answer6": "incorrect"
+						},
+						"image": "quiz1pop6o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN6"
+					},
+					{
+						"label": "Carrot",
+						"persistValue": {
+							"quiz1answer6": "incorrect"
+						},
+						"image": "quiz1pop6o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN6"
+					},
+					{
+						"label": "Corn",
+						"persistValue": {
+							"quiz1answer6": "incorrect"
+						},
+						"image": "quiz1pop6o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "MAIN6"
+					},
+					{
+						"label": "Broccoli",
+						"persistValue": {
+							"quiz1answer6": "correct"
+						},
+						"image": "quiz1pop6o4.png",
+						"isCorrect": true,
+						"points": 1,
+						"onSubmitStep": "MAIN6"
+					}
+				]
+			}
+		},
+		"MAIN6": {
+			"type": "story",
+			"label": "And That Was It",
+			"text": [
+				{
+					"condition": {
+						"points": "==6"
+					},
+					"value": "<i>- Excellent, you passed the assessment! You are now officially whitelisted as Non-IZ. You answered all six questions correctly. Let's submit the results to the system and finish the loan application process.</i>"
+				},
+				{
+					"condition": {
+						"points": ">=4"
+					},
+					"value": "<i>- Excellent, you passed the assessment! You are now officially whitelisted as Non-IZ. And just for your reference, your answer to the fourth question was @@quiz1answer4, for the fifth @@quiz1answer5, and for the sixth @@quiz1answer6. Let's submit the results to the system and finish the loan application process.</i>"
+				},
+				{
+					"condition": {
+						"points": "<=3"
+					},
+					"value": "<i>- Oh! It was so close, but you didn't reach the passing score of four correct answers - your current score is @@points. For your information, your answer to the fourth question was @@quiz1answer4, for the fifth @@quiz1answer5, and for the sixth @@quiz1answer6. I'm afraid we can't proceed with the loan application process. However, you can retake the QUIZ assessment.</i>"
+				}
+			],
+			"image": "main4.png",
+			"submit": [
+				{
+					"condition": {
+						"points": ">=4"
+					},
+					"value": "Finish the loan application"
+				},
+				{
+					"condition": {
+						"points": "<=3"
+					},
+					"value": "Retake the QUIZ"
+				}
+			],
+			"entryScore": 0,
+			"onSubmitStep": [
+				{
+					"condition": {
+						"quiz1score": ">=6"
+					},
+					"value": "MAIN7"
+				},
+				{
+					"condition": {
+						"quiz1score": ">=4"
+					},
+					"value": "END2_1"
+				},
+				{
+					"condition": {
+						"quiz1": "general"
+					},
+					"value": "MAIN4"
+				},
+				{
+					"condition": {
+						"quiz1": "pop"
+					},
+					"value": "MAIN4"
+				}
+			],
+			"onFailureStep": null,
+			"persistValue": {
+				"quiz1score": "@@points",
+				"points": "0",
+				"pointsData": ""
+			}
+		},
+		"MAIN7": {
+			"type": "decision",
+			"label": "Yet Another Opportunity",
+			"text": "<i>- Tremendous! The loan approval algorithm acknowledged your extraordinary QUIZ assessment result and generated a special offer for your business. On top of a loan for your lamanade stand, which is now fully approved, you can apply for a venture capital fund to finance future expansion. That means a dozen lamanade stands across the city by the end of the year. However, before granting you the funding, the Board would like to ask you a couple of questions. </i>",
+			"image": [
+				{
+					"condition": {
+						"glasses": "pink"
+					},
+					"value": "main7c1.png"
+				},
+				{
+					"condition": {
+						"glasses": "yellow"
+					},
+					"value": "main7c2.png"
+				},
+				{
+					"condition": {
+						"glasses": "blue"
+					},
+					"value": "main7c3.png"
+				},
+				{
+					"condition": {
+						"glasses": "black"
+					},
+					"value": "main7c4.png"
+				}
+			],
+			"submit": "This is what he wants",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": "In which direction should Al develop his business?",
+				"options": [
+					{
+						"label": "Pursue his dream of having a lamanade stand",
+						"image": "main7o1.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END2_1"
+					},
+					{
+						"label": "Take the opportunity and become the CEO of Lamanade, Inc.",
+						"image": "main7o2.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END1_1"
+					}
+				]
+			}
+		},
+		"END2_1": {
+			"type": "decision",
+			"label": "Quo vadis, Al?",
+			"text": "Sweet! Thank you for helping Al with the QUIZ assesment. I'll say even more - we wouldn't be in this place if it wasn't for you.<br />Sooo, he has a suitcase full of cash, and the last thing to decide is where to open the lamande stand?! There are so many options, but I know for a fact that the business will thrive either near the mountain trail or at the beach. You make the call.",
+			"image": "end2s1.png",
+			"submit": "Let's do this!",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": "Where Al should open the lamanade stand?",
+				"options": [
+					{
+						"label": "Near the mountain trail",
+						"persistValue": {
+							"location": "trail"
+						},
+						"image": "end2s1o1.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END2_2"
+					},
+					{
+						"label": "At the beach",
+						"persistValue": {
+							"location": "beach"
+						},
+						"image": "end2s1o2.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END2_2"
+					}
+				]
+			}
+		},
+		"END2_2": {
+			"type": "story",
+			"label": "Happily Ever After",
+			"text": "Wow! Just look at this place! Isn't this the best job ever? Well, even if it is not, Al couldn't be happier. Thank you for making his dream come true! Come by his lamanade stand anytime you need a refreshing beverage. Or a pair of woolen socks. (Yeah, this might feel awkward at first, but you won't regret it!)<br />See you around!",
+			"image": [
+				{
+					"condition": {
+						"location": "trail"
+					},
+					"value": "end2s2c1.png"
+				},
+				{
+					"condition": {
+						"location": "beach"
+					},
+					"value": "end2s2c2.png"
+				}
+			],
+			"entryScore": 0,
+			"onFailureStep": null
+		},
+		"END1_1": {
+			"type": "story",
+			"label": "What Does The Fox Say?",
+			"text": "<i>- Oi mate! Long time no see. Glad you're doing good! You seem surprised to see me here. I won't lie to you. After the last million-dollar idea we had, I was broke AF and had to go back to my parents' den. Who would have guessed that sun lotion for seals won't click? But after binge-watching the whole Friends once again, I applied to every job offer I found, and eventually landed this sweet gig at the bank. Call me lucky, I guess.<br />So, you're going for the big win, am I right? Take a seat and relax. The rest of the Board will be here any minute now. We'll ask you three questions, and you'll be off. Easy-peasy. Don't be wrong, though!</i>",
+			"image": "end1s1.png",
+			"entryScore": 0,
+			"submit": "I'm not scared",
+			"onSubmitStep": "QUIZ2_BIZ1",
+			"onFailureStep": null
+		},
+		"QUIZ2_BIZ1": {
+			"type": "decision",
+			"label": "QUIZ: Biznus",
+			"text": "<p class=\"quiz-question\">Which of the below symbols represents the currency used in Azerbaijan?</p>",
+			"image": "quiz2biz1.png",
+			"submit": "Yep, this one",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": null,
+						"persistValue": {
+							"quiz2answer1": "correct"
+						},
+						"image": "quiz2biz1o1.png",
+						"isCorrect": true,
+						"points": 10,
+						"onSubmitStep": "QUIZ2_BIZ2"
+					},
+					{
+						"label": null,
+						"persistValue": {
+							"quiz2answer1": "incorrect"
+						},
+						"image": "quiz2biz1o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ2_BIZ2"
+					},
+					{
+						"label": null,
+						"persistValue": {
+							"quiz2answer1": "incorrect"
+						},
+						"image": "quiz2biz1o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ2_BIZ2"
+					},
+					{
+						"label": null,
+						"persistValue": {
+							"quiz2answer1": "incorrect"
+						},
+						"image": "quiz2biz1o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ2_BIZ2"
+					}
+				]
+			}
+		},
+		"QUIZ2_BIZ2": {
+			"type": "decision",
+			"label": "QUIZ: Biznus",
+			"text": "<p class=\"quiz-question\">What NYSE trading stock symbol does Ford Motor Company has?</p>",
+			"image": "quiz2biz2.png",
+			"submit": "Done",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": "FORD",
+						"persistValue": {
+							"quiz2answer2": "incorrect"
+						},
+						"image": "quiz2biz2o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ2_BIZ3"
+					},
+					{
+						"label": "FOR",
+						"persistValue": {
+							"quiz2answer2": "incorrect"
+						},
+						"image": "quiz2biz2o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ2_BIZ3"
+					},
+					{
+						"label": "FO",
+						"persistValue": {
+							"quiz2answer2": "incorrect"
+						},
+						"image": "quiz2biz2o3.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "QUIZ2_BIZ3"
+					},
+					{
+						"label": "F",
+						"persistValue": {
+							"quiz2answer2": "correct"
+						},
+						"image": "quiz2biz2o4.png",
+						"isCorrect": true,
+						"points": 10,
+						"onSubmitStep": "QUIZ2_BIZ3"
+					}
+				]
+			}
+		},
+		"QUIZ2_BIZ3": {
+			"type": "decision",
+			"label": "QUIZ: Biznus",
+			"text": "<p class=\"quiz-question\">If a single lamanade stand sells 200 beverages per day for 2 Zooleons each drink, with a profit margin of 50%, how many days would it take for a dozen of stands to pay back the loan of 600,000 Zooleons with all the profit they make?</p>",
+			"image": "quiz2biz3.png",
+			"submit": "All right!",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": null,
+				"options": [
+					{
+						"label": 150,
+						"persistValue": {
+							"quiz2answer3": "incorrect"
+						},
+						"image": "quiz2biz3o1.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "END1_2"
+					},
+					{
+						"label": 200,
+						"persistValue": {
+							"quiz2answer3": "incorrect"
+						},
+						"image": "quiz2biz3o2.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "END1_2"
+					},
+					{
+						"label": 250,
+						"persistValue": {
+							"quiz2answer3": "correct"
+						},
+						"image": "quiz2biz3o3.png",
+						"isCorrect": true,
+						"points": 10,
+						"onSubmitStep": "END1_2"
+					},
+					{
+						"label": 300,
+						"persistValue": {
+							"quiz2answer3": "incorrect"
+						},
+						"image": "quiz2biz3o4.png",
+						"isCorrect": false,
+						"points": 0,
+						"onSubmitStep": "END1_2"
+					}
+				]
+			}
+		},
+		"END1_2": {
+			"type": "story",
+			"label": "The Results Are Here",
+			"text": [
+				{
+					"condition": {
+						"points": ">=30"
+					},
+					"value": "<i>- Gucci, you crashed it! All your answers were correct, as I expected. Your cash is now being loaded on trucks. Expect delivery early morning tomorrow. Good luck with your business. And call me sometimes!</i>"
+				},
+				{
+					"condition": {
+						"points": "<=29"
+					},
+					"value": "<i>- What a bummer, bro! You know I can't sign these papers without you answering all the questions correctly. However, you can retake the QUIZ assessment anytime. For your information, your answer to the first question was @@quiz2answer1, for the second @@quiz2answer2, and for the third @@quiz2answer3.</i>"
+				}
+			],
+			"image": "end1s1.png",
+			"submit": [
+				{
+					"condition": {
+						"points": ">=30"
+					},
+					"value": "Launch Lamanade, Inc."
+				},
+				{
+					"condition": {
+						"points": "<=29"
+					},
+					"value": "Retake the Biznus QUIZ"
+				}
+			],
+			"entryScore": 0,
+			"onSubmitStep": [
+				{
+					"condition": {
+						"quiz2score": ">=30"
+					},
+					"value": "END1_3"
+				},
+				{
+					"condition": {
+						"quiz2score": "<=29"
+					},
+					"value": "MAIN7"
+				}
+			],
+			"onFailureStep": null,
+			"persistValue": {
+				"quiz2score": "@@points",
+				"points": "0",
+				"pointsData": ""
+			}
+		},
+		"END1_3": {
+			"type": "decision",
+			"label": "Furniture Up!",
+			"text": "Sweet! Thank you for helping Al to make this decision. I'll say even more - we wouldn't be in this place if it wasn't for you.<br />Sooo, he still have some cash left, and the last thing to decide is which desk would best suit Al's corner office?! There are so many options, but the office facilities narrowed them down to just a couple. You make the call.",
+			"image": "end1s3.png",
+			"submit": "This one looks nice",
+			"entryScore": 0,
+			"onSubmitStep": null,
+			"onFailureStep": null,
+			"answer": {
+				"label": "Which desk would you recoment for Al?",
+				"options": [
+					{
+						"label": null,
+						"image": "end1s3o1.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END1_4",
+						"persistValue": {
+							"desk": "o1"
+						}
+					},
+					{
+						"label": null,
+						"image": "end1s3o2.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END1_4",
+						"persistValue": {
+							"desk": "o2"
+						}
+					},
+					{
+						"label": null,
+						"image": "end1s3o3.png",
+						"isCorrect": true,
+						"points": 0,
+						"onSubmitStep": "END1_4",
+						"persistValue": {
+							"desk": "o3"
+						}
+					}
+				]
+			}
+		},
+		"END1_4": {
+			"type": "story",
+			"label": "Happily Ever After",
+			"text": "Wow! Just look at the city skyline! Isn't this the best job ever? Well, even if it is not, Al couldn't be happier. Thank you for helping him to dream bigger, and making those dreams come true! Come by his office anytime you are in town. Or when you are short of office supplies - there are plenty of them lying around. (Yeah, he still thinks they are free...)<br />See you around!",
+			"image": [
+				{
+					"condition": {
+						"desk": "o1"
+					},
+					"value": "end1s4c1.png"
+				},
+				{
+					"condition": {
+						"desk": "o2"
+					},
+					"value": "end1s4c2.png"
+				},
+				{
+					"condition": {
+						"desk": "o3"
+					},
+					"value": "end1s4c3.png"
+				}
+			],
+			"entryScore": 0,
+			"onFailureStep": null
+		}
+	}
+}

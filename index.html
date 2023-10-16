@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>It's Story Time!</title>
+    <link rel="icon" type="image/png" href="./img/favicon.ico">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro:400,700|Montserrat:400,800&display=swap&subset=latin-ext" rel="stylesheet">
+  </head>
+  <body class="pb-5 pb-md-0">
+    <nav class="navbar navbar-expand-md navbar-dark nfs-bg-orange fixed-top">
+      <p class="font-weight-bold text-light nfs-font-header nfs-font-2 mb-0">Story Time</p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#quiz-options" aria-controls="quiz-options" aria-expanded="false" aria-label="Quiz Options">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="quiz-options">
+        <p id="story-label" class="ml-md-3 text-white nfs-font-2 mr-md-auto mb-0"></p>
+        <button id="story-replay" class="btn btn-outline-light mt-3 mt-md-0" onclick="window.document.StoryTime.replayStory()">Replay Story</button>
+      </div>
+    </nav>
+
+    <main id="step-content" role="main" class="container">
+
+      <!-- LOADING_SCREEN -->
+      <div id="step-loading" class="row align-items-center">
+        <div class="col-12">
+          <img id="step-loading-animation" src="./img/book_open.gif" />
+          <img id="flip-animation" src="./img/book_flip.gif" />
+        </div>
+      </div>
+
+      <!-- WELCOME_SCREEN -->
+      <div id="step-welcome" class="row">
+        <div class="col-md-12">
+          <img id="step-welcome-image" src="./img/welcome.png" />
+          <h1 id="step-welcome-label">Get ready for the adventure!</h1>
+          <p id="step-welcome-text" class="lead">To start, type below the Story ID</p>
+          <form class="form-inline justify-content-center" role="form" onsubmit="window.document.StoryTime.onSubmitStoryID(event)">
+            <input id="step-welcome-story-id" class="form-control form-control-lg" type="text" name="story-id" placeholder="Story ID (10 characters)">
+            <button id="step-welcome-submit" class="btn btn-primary step-submit-button nfs-font-15 ml-2 mt-2 mt-sm-0" type="submit">Go!</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ERROR_MESSAGE -->
+      <div id="step-error" class="row">
+        <div class="col-md-12">
+          <img id="step-error-image" src="./img/error.png" />
+          <h1 id="step-error-label">Oops, something went wrong :(</h1>
+          <p id="step-error-text" class="lead">Let's type this Story ID once again</p>
+          <form class="form-inline justify-content-center" role="form" onsubmit="window.document.StoryTime.onSubmitStoryID(event)">
+            <input id="step-error-story-id" class="form-control form-control-lg" type="text" name="story-id" placeholder="Story ID (10 characters)">
+            <button id="step-error-submit" class="btn btn-primary step-submit-button nfs-font-15 ml-2 mt-2 mt-sm-0" type="submit">Go!</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- STORY_TEMPLATE -->
+      <div id="step-story" class="row">
+        <div class="col-md-12">
+          <img id="step-story-image" class="mb-4" />
+          <h1 id="step-story-label"></h1>
+          <p id="step-story-text" class="lead"></p>
+          <button id="step-story-submit" class="btn btn-primary mt-3 step-submit-button nfs-font-2" type="submit" onclick="window.document.StoryTime.onSubmitStep(event)"></button>
+        </div>
+      </div>
+
+      <!-- DECISION_TEMPLATE -->
+      <div  id="step-decision">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-4 step-content">
+              <img id="step-decision-image" class="mb-4" />
+            </div>
+            <div class="col-lg-8 step-content">
+              <h1 id="step-decision-label"></h1>
+              <p id="step-decision-text" class="lead"></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col step-content">
+              <p id="step-decision-answer-label" class="lead font-weight-bold"></p>
+              <div id="step-decision-answer-options" class="row justify-content-center"></div>
+              <button id="step-decision-submit" class="btn btn-primary mt-3 step-submit-button nfs-font-2" type="submit" onclick="window.document.StoryTime.onSubmitStep(event)"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INPUT_TEMPLATE -->
+      <div  id="step-input">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-lg-4 step-content">
+              <img id="step-input-image" class="mb-4" />
+            </div>
+            <div class="col-lg-8 step-content">
+              <h1 id="step-input-label"></h1>
+              <p id="step-input-text" class="lead"></p>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-6 step-content">
+              <p id="step-input-answer-label" class="lead font-weight-bold"></p>
+              <div class="mx-3">
+                <input id="step-input-answer-value" class="form-control form-control-lg" type="text" placeholder="" maxlength="50" oninput="window.document.StoryTime.onInputChange(event)" />
+              </div>
+              <button id="step-input-submit" class="btn btn-primary mt-3 step-submit-button nfs-font-2" type="submit" onclick="window.document.StoryTime.onSubmitStep(event)"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer id="story-time-copyrights">Copyright © 2023 NotForSquares. All rights reserved. The Driver™ and NotForSquares™ are trademarks pending registration.</footer>
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/loader.js"></script>
+  </body>
+</html>

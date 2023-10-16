@@ -1,0 +1,84 @@
+.nfs-text-orange { color: #FF7500 !important; }
+
+.nfs-bg-orange { background-color: #FF7500 !important; }
+
+.nfs-font-header { font-family: "Advent Pro", "Segoe UI", sans-serif !important; }
+
+.nfs-font-15 { font-size: 1.5rem !important; }
+.nfs-font-2 { font-size: 2rem !important; }
+
+html { height: 100%; }
+
+body {
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  padding-top: 5rem;
+  min-height: 100%;
+  position: relative;
+}
+
+#story-label, #story-replay, #step-loading, #flip-animation, #step-welcome, #step-error, #step-story, #step-decision, #step-input {
+  display: none;
+}
+
+#step-loading{
+  height: calc(100vh - 15rem);
+}
+
+#step-content, #dashboard-content{
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.step-decision-answer-options-image {
+  max-width: 70%;
+  max-height: 150px;
+}
+
+#step-story-image, #step-welcome-image, #step-error-image{
+  max-width: 70%;
+  max-height: 400px;
+}
+
+#step-input-image, #step-decision-image{
+  max-width: 100%;
+  max-height: 400px;
+}
+
+#step-decision-answer-options p {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 4px solid #C3C3C3;
+}
+
+#step-decision-answer-options p:hover, #step-decision-answer-options p.selected-option {
+  border: 4px solid #00D7B1;
+  cursor: pointer;
+}
+
+.step-submit-button {
+  background-color: #FF7500 !important;
+  border-color: #FF7500 !important;
+}
+
+.step-submit-button:hover {
+  background-color: #E07400 !important;
+  border-color: #E07400 !important;
+}
+
+#story-time-copyrights{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: 0.25rem;
+  padding-top: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #C3C3C3;
+  background-color: #FFFFFF;
+}
+
+.quiz-question{
+  padding-top: 1rem;
+}

@@ -1,0 +1,53 @@
+{
+    "label": "Farewell Quiz Results",
+    "sections": [
+        {
+            "layout": "COL-3",
+            "widgets": [
+                {
+                    "label": "Quiz 1 Average Score",
+                    "type": "AVERAGE-DIGIT-1",
+                    "value": "quiz1score",
+                    "scale": {
+                        "min": 0,
+                        "max": 6
+                    }
+                },
+                {
+                    "label": "Glasses color choice",
+                    "type": "DOUGHNUT-DIGIT-0",
+                    "value": "glasses",
+                    "legend": {
+                        "pink": "Pink",
+                        "yellow": "Yellow",
+                        "blue": "Blue",
+                        "black": "Black"
+                    }
+                },
+                {
+                    "label": "Quiz 1 Correct Answers Distribution",
+                    "type": "BAR-PERCENT-0",
+                    "condition": {
+                        "quiz1": "pop"
+                    },
+                    "value": {
+                        "quiz1answer1": "correct",
+                        "quiz1answer2": "correct",
+                        "quiz1answer3": "correct",
+                        "quiz1answer4": "correct",
+                        "quiz1answer5": "correct",
+                        "quiz1answer6": "correct"
+                    },
+                    "legend": {
+                        "quiz1answer1": "Q1",
+                        "quiz1answer2": "Q2",
+                        "quiz1answer3": "Q3",
+                        "quiz1answer4": "Q4",
+                        "quiz1answer5": "Q5",
+                        "quiz1answer6": "Q6"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^engagement/$ engagement.php [NC,L]
+RewriteRule ^engagement/([A-Z0-9]+)/?$ engagement.php?storyID=$1 [NC,L]
+RewriteRule ^engagement/([a-z0-9-]+)/?$ engagement.php?engagementID=$1 [NC,L]

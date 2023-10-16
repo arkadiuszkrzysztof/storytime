@@ -1,0 +1,69 @@
+{
+    "label": "Breaking Down the Silos",
+    "steps": {
+        "START": {
+            "type": "story",
+            "label": "Together We Will Succeed",
+            "text": "At Life, Inc., we are proud to provide exceptional customer service to over 2 million users a year. People are always an essential part of our business. To make sure we exceed our customers' expectations, we start a unification process of our support channels.",
+            "image": "start.png",
+            "submit": "Find out more",
+            "entryScore": 0,
+            "onSubmitStep": "MAIN1",
+            "onFailureStep": null
+        },
+        "MAIN1": {
+            "type": "story",
+            "label": "What Will Change?",
+            "text": "For historical reasons, we worked in a model where Customer Representatives were highly specialized in one of the support channels. However, due to everchanging technology, we adjust this approach. Instead of separate teams monitoring each of the communication channels, we introduce a software solution that provides our customers with a unified, seamless experience. Please look out for a training session scheduled for your team.",
+            "image": "main1.png",
+            "submit": "Continue",
+            "entryScore": 0,
+            "onSubmitStep": "MAIN2",
+            "onFailureStep": null
+        },
+        "MAIN2": {
+            "type": "input",
+            "label": "Your First Impression",
+            "text": "We always appreciate your feedback and want to hear your voice. Please let us know what your first impression of the proposed change is. We will ask you for more input in the following steps.",
+            "image": "main2.png",
+            "submit": "This is how I feel",
+            "entryScore": 0,
+            "onSubmitStep": null,
+            "onFailureStep": null,
+            "answer": {
+                "label": "Please use one word to describe how do you feel about the proposed change.",
+                "placeholder": "Type one word here",
+                "onSubmitStep": "MAIN3"
+            }
+        },
+        "MAIN3": {
+            "type": "decision",
+            "label": "Global Update",
+            "text": "We are doubling our efforts to provide you with all the information you need about the proposed change. The next steps will refer to the message we shared during the Global Update meeting.",
+            "image": "main3.png",
+            "submit": "Continue",
+            "entryScore": 0,
+            "onSubmitStep": null,
+            "onFailureStep": null,
+            "answer": {
+                "label": "Did you attend the last week Global Update meeting?",
+                "options": [
+                    {
+                        "label": "Yes, I did",
+                        "image": "main3o1.png",
+                        "isCorrect": false,
+                        "points": 0,
+                        "onSubmitStep": "START"
+                    },
+                    {
+                        "label": "No, I didn't",
+                        "image": "main3o2.png",
+                        "isCorrect": false,
+                        "points": 0,
+                        "onSubmitStep": "START"
+                    }
+                ]
+            }
+        }
+    }
+}
